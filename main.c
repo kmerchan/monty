@@ -5,8 +5,7 @@ int main(int argc, char *argv[])
 	FILE *fd;
 	char *str;
 	int linenum = 1;
-	char opcode[16];
-	stack_t *head;
+	stack_t *head = NULL;
 	if (argc != 2)
 	{
 		printf("USAGE: monty file\n");
@@ -24,12 +23,15 @@ int main(int argc, char *argv[])
 		str = fgets(str, 1024, fd);
 		if (str == NULL)
 			continue;
-		opcode = getopcode(str);
-/*		if (opcode == push)
-			head = addnode(opcode, head, linenum);
+		str = getopcode(str);
+		if (strncmp(str, "push ", 5) == 0)
+			head = addnode(str, &head, linenum);
+			if (head == NULL)
+				/* free stuff */
+				exit(EXIT_FAILURE);
 		else
-			head = findinstruction(opcode, head, linenum);
-*/		linenum++;
+			head = findinstruction(str, &head, linenum);
+		linenum++;
 	}
 	return (0);
 }
