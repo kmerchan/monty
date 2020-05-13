@@ -1,51 +1,49 @@
 #include "monty.h"
 /**
   * addnode - add node to head of list
-  * @head: head
-  * @str: opcode push and value
-  * @linenum: line number
+  * @stack: head
+  * @opcode: opcode push and value
+  * @line_number: line number
   *
   * Return: pointer to head
   */
-stack_t *addnode(char *str, stack_t **head, int linenum)
+stack_t *addnode(char *opcode, stack_t **stack, unsigned int line_number)
 {
 	stack_t *newnode;
-	char *contents;
+	char contents[strlen(opcode) - 4];
 	int i, n;
 
 	newnode = malloc(sizeof(stack_t));
 	if (newnode == NULL)
 	{
-		printf("Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		return (NULL);
 	}
-	contents = malloc(sizeof(char) * strlen(str));
-	for (i = 0; str[i + 5] != '\0'; i++)
+	for (i = 0; opcode[i + 5] != '\0'; i++)
 	{
-		if (isdigit(str[i + 5]) != 0)
-			contents[i] = str[i + 5];
+		if (isdigit(opcode[i + 5]) != 0)
+			contents[i] = opcode[i + 5];
 		else
 		{
-			free(contents);
-			printf("L%d: unknown instruction %s\n", linenum, str);
+			fprintf(stderr, "L%u: usage: push integer\n",
+				line_number);
 			return (NULL);
 		}
 	}
 	contents[i] = '\0';
 	n = atoi(contents);
-	free(contents);
 	newnode->n = n;
 	newnode->prev = NULL;
-	if ((*head) == NULL)
+	if ((*stack) == NULL)
 	{
-		(*head) = newnode;
 		newnode->next = NULL;
+		(*stack) = newnode;
 	}
 	else
 	{
-		newnode->next = (*head);
-		(*head)->prev = newnode;
-		(*head) = newnode;
+		newnode->next = (*stack);
+		(*stack)->prev = newnode;
+		(*stack) = newnode;
 	}
-	return (*head);
+	return (*stack);
 }
