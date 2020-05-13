@@ -2,7 +2,7 @@
 /**
   * addnode - add node to head of list
   * @head: head
-  * @opcode: opcode and value
+  * @str: opcode push and value
   * @linenum: line number
   *
   * Return: pointer to head
@@ -26,10 +26,12 @@ stack_t *addnode(char *str, stack_t **head, int linenum)
 			contents[i] = str[i + 5];
 		else
 		{
+			free(contents);
 			printf("L%d: unknown instruction %s\n", linenum, str);
 			return (NULL);
 		}
 	}
+	contents[i] = '\0';
 	n = atoi(contents);
 	free(contents);
 	newnode->n = n;
