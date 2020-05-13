@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 
 /* STRUCTS AND DEFINITIONS */
 /**
@@ -54,5 +53,8 @@ void pall_func(stack_t **stack, unsigned int line_number);
 
 /* function to free all elements of stack */
 void free_stack(stack_t *stack);
+
+/*check if char is digit*/
+int _isdigit(int c);
 
 #endif /* MONTY_H */
