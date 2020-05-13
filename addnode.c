@@ -10,7 +10,7 @@
 stack_t *addnode(char *opcode, stack_t **stack, unsigned int line_number)
 {
 	stack_t *newnode;
-	char contents[strlen(opcode) - 4];
+	char contents[1020];
 	int i, n;
 
 	newnode = malloc(sizeof(stack_t));
