@@ -7,12 +7,13 @@
   *
   * Return: pointer to head of stack
   */
-char *findinstruction(char *opcode, stack_t **stack, unsigned int line_number)
+stack_t *findinstruction(char *opcode, stack_t **stack,
+			 unsigned int line_number)
 {
 	int i;
 	instruction_t instructions[] = {
 		{"pall", pall_func}, {NULL, NULL} };
-	
+
 	for (i = 0; instructions[i].opcode != NULL; i++)
 	{
 		if (strcmp(opcode, instructions[i].opcode) == 0)
@@ -21,8 +22,9 @@ char *findinstruction(char *opcode, stack_t **stack, unsigned int line_number)
 	if (instructions[i].opcode == NULL)
 	{
 		printf("L:%d: unknown instruction %s\n", line_number, opcode);
+		free_stack(*stack);
 		return (NULL);
 	}
 	instructions[i].f(stack, line_number);
-	return(stack);
+	return (*stack);
 }
