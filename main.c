@@ -62,6 +62,8 @@ int main(int argc, char *argv[])
 
 FILE *opening_func(int argc, char *argv[])
 {
+	int status;
+
 	global.opcode = NULL;
 	global.fd = NULL;
 	if (argc != 2)
@@ -69,10 +71,16 @@ FILE *opening_func(int argc, char *argv[])
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
+	status = access(argv[1], R_OK);
+	if (status)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
 	global.fd = fopen(argv[1], "r");
 	if (global.fd == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	return (global.fd);
