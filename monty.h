@@ -102,4 +102,8 @@ void pop_func(stack_t **stack, unsigned int line_number);
 
 /* function to subtract the top two integers on the stack & replace the top value*/
 void sub_func(stack_t **stack, unsigned int line_number);
+
+/* function to multiply the top two integers on the stack & replace the top value*/
+void mul_func(stack_t **stack, unsigned int line_number);
+
 #endif /* MONTY_H */
