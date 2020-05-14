@@ -14,7 +14,7 @@ stack_t *findinstruction(char *opcode, stack_t **stack,
 	instruction_t instructions[] = {
 
 		{"pall", pall_func}, {"pint", pint_func}, {"swap", swap_func},
-		{"add", add_func}, {"\n", newline_func}, {"nop", newline_func},
+		{"add", add_func}, {"\n", nop_func}, {"nop", nop_func},
 		{"sub", sub_func}, {"mul", mul_func}, {"pop", pop_func},
 		{"div", div_func}, {"mod", mod_func}, {NULL, NULL} };
 

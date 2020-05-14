@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 		{
 			stack = findinstruction(global.opcode,
 						&stack, line_number);
-			if (stack == NULL)
+			if (stack == NULL && strcmp(global.opcode, "\n"))
 				free_for_exit_error(stack);
 		}
 		free(global.opcode);
