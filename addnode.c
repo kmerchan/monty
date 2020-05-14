@@ -27,6 +27,8 @@ stack_t *addnode(char *opcode, stack_t **stack, unsigned int line_number)
 		{
 			fprintf(stderr, "L%u: usage: push integer\n",
 				line_number);
+			free(newnode);
+			free_stack(*stack);
 			return (NULL);
 		}
 	}

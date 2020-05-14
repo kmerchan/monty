@@ -39,6 +39,9 @@ typedef struct instruction_s
 } instruction_t;
 
 /* FUNCTION PROTOTYPES */
+/* function to check initial conditions and open the file */
+FILE *opening_func(int argc, char *argv[]);
+
 /* function to parse first opcode and needed arguments from line read */
 char *getopcode(char **str);
 
@@ -52,7 +55,20 @@ stack_t *findinstruction(char *opcode, stack_t **stack,
 /* function to print all elements of the stack */
 void pall_func(stack_t **stack, unsigned int line_number);
 
+/* function to catch empty lines or newlines from invalid command */
+void newline_func(stack_t **stack, unsigned int line_number);
+
 /* function to free all elements of stack */
 void free_stack(stack_t *stack);
+
+/* function to print error message, free everything, & exit if push arg fails*/
+void free_for_exit_push(unsigned int line_number, FILE *fd,
+			char *opcode, stack_t *stack);
+
+/* function to print error message, free everything, & exit if malloc fails */
+void free_for_exit_malloc(FILE *fd, char *opcode, stack_t *stack);
+
+/* function to print free everything & exit for general error */
+void free_for_exit_error(FILE *fd, char *opcode, stack_t *stack);
 
 #endif /* MONTY_H */
