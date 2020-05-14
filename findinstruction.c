@@ -29,7 +29,7 @@ stack_t *findinstruction(char *opcode, stack_t **stack,
 	}
 	if (instructions[i].opcode == NULL)
 	{
-		printf("L:%d: unknown instruction %s\n", line_number, opcode);
+		printf("L%d: unknown instruction %s\n", line_number, opcode);
 		free_stack(*stack);
 		return (NULL);
 	}
