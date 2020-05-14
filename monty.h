@@ -112,4 +112,10 @@ void div_func(stack_t **stack, unsigned int line_number);
 /* function to modulo the top two integers on the stack & replace the top value*/
 void mod_func(stack_t **stack, unsigned int line_number);
 
+/* function to print top of stack as ascii character */
+void pchar_func(stack_t **stack, unsigned int line_number);
+
+/* function to print stack as string */
+void pstr_func(stack_t **stack, unsigned int line_number);
+
 #endif /* MONTY_H */
