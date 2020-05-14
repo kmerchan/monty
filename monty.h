@@ -100,4 +100,6 @@ int _isdigit(int c);
 /* function to delete top of stack */
 void pop_func(stack_t **stack, unsigned int line_number);
 
+/* function to subtract the top two integers on the stack & replace the top value*/
+void sub_func(stack_t **stack, unsigned int line_number);
 #endif /* MONTY_H */
