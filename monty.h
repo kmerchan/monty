@@ -73,6 +73,12 @@ void pall_func(stack_t **stack, unsigned int line_number);
 /* function to print integer at top of stack */
 void pint_func(stack_t **stack, unsigned int line_number);
 
+/* function to swap the top two integers on the stack */
+void swap_func(stack_t **stack, unsigned int line_number);
+
+/* function to add the top two integers on the stack & replace the top value*/
+void add_func(stack_t **stack, unsigned int line_number);
+
 /* function to catch empty lines or newlines from invalid command */
 void newline_func(stack_t **stack, unsigned int line_number);
 
