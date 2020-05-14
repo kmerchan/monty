@@ -106,4 +106,10 @@ void sub_func(stack_t **stack, unsigned int line_number);
 /* function to multiply the top two integers on the stack & replace the top value*/
 void mul_func(stack_t **stack, unsigned int line_number);
 
+/* function to divide the top two integers on the stack & replace the top value*/
+void div_func(stack_t **stack, unsigned int line_number);
+
+/* function to modulo the top two integers on the stack & replace the top value*/
+void mod_func(stack_t **stack, unsigned int line_number);
+
 #endif /* MONTY_H */
