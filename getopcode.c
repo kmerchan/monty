@@ -13,20 +13,20 @@ char *getopcode(char **str)
 	int i = 0, j = 0, end_check = 1;
 	char *opcode;
 
-	opcode = malloc(sizeof(char) * strlen(*str));
+	opcode = malloc(sizeof(char) * (strlen(*str) + 1));
 	if (opcode == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
 		free(*str);
-		exit(EXIT_FAILURE);
+		return (NULL);
 	}
 	while ((*str)[i] == ' ')
 		i++;
-	if ((*str)[i] == '\0')
+	if ((*str)[i] == '\0' || (*str)[i] == '\n')
 	{
 		free(*str);
-		free(opcode);
-		return (NULL);
+		opcode[j] = '\n';
+		opcode[j + 1] = '\0';
+		return (opcode);
 	}
 	for (j = 0; OPCODE_END; j++, i++)
 		opcode[j] = (*str)[i];

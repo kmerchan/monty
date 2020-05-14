@@ -10,7 +10,7 @@
 stack_t *addnode(char *opcode, stack_t **stack, unsigned int line_number)
 {
 	stack_t *newnode;
-	char contents[1024];
+	char contents[1020];
 	int i, n;
 
 	newnode = malloc(sizeof(stack_t));
@@ -27,6 +27,8 @@ stack_t *addnode(char *opcode, stack_t **stack, unsigned int line_number)
 		{
 			fprintf(stderr, "L%u: usage: push integer\n",
 				line_number);
+			free(newnode);
+			free_stack(*stack);
 			return (NULL);
 		}
 	}
