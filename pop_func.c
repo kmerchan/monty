@@ -1,7 +1,8 @@
 #include "monty.h"
 /**
-  * pop - delete note at top of stack
+  * pop_func - delete note at top of stack
   * @stack: pointer to head of stack
+  * @line_number: line number
   */
 void pop_func(stack_t **stack, unsigned int line_number)
 {
