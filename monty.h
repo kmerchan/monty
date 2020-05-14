@@ -79,6 +79,33 @@ void swap_func(stack_t **stack, unsigned int line_number);
 /* function to add the top two integers on the stack & replace the top value*/
 void add_func(stack_t **stack, unsigned int line_number);
 
+/* function to delete top of stack */
+void pop_func(stack_t **stack, unsigned int line_number);
+
+/* function to subtract top two integers on the stack & replace the top value*/
+void sub_func(stack_t **stack, unsigned int line_number);
+
+/* function to multiply top two integers on the stack & replace the top value*/
+void mul_func(stack_t **stack, unsigned int line_number);
+
+/* function to divide top two integers on the stack & replace the top value*/
+void div_func(stack_t **stack, unsigned int line_number);
+
+/* function to modulo top two integers on the stack & replace the top value*/
+void mod_func(stack_t **stack, unsigned int line_number);
+
+/* function to print top of stack as ascii character */
+void pchar_func(stack_t **stack, unsigned int line_number);
+
+/* function to print stack as string */
+void pstr_func(stack_t **stack, unsigned int line_number);
+
+/* function to rotate stack so the top element becomes the last */
+void rotl_func(stack_t **stack, unsigned int line_number);
+
+/* function to rotate stack so the last element becomes the top */
+void rotr_func(stack_t **stack, unsigned int line_number);
+
 /* function to catch empty lines or newlines from invalid command */
 void nop_func(stack_t **stack, unsigned int line_number);
 
@@ -96,26 +123,5 @@ void free_for_exit_error(stack_t *stack);
 
 /* function to check if char is digit */
 int _isdigit(int c);
-
-/* function to delete top of stack */
-void pop_func(stack_t **stack, unsigned int line_number);
-
-/* function to subtract the top two integers on the stack & replace the top value*/
-void sub_func(stack_t **stack, unsigned int line_number);
-
-/* function to multiply the top two integers on the stack & replace the top value*/
-void mul_func(stack_t **stack, unsigned int line_number);
-
-/* function to divide the top two integers on the stack & replace the top value*/
-void div_func(stack_t **stack, unsigned int line_number);
-
-/* function to modulo the top two integers on the stack & replace the top value*/
-void mod_func(stack_t **stack, unsigned int line_number);
-
-/* function to print top of stack as ascii character */
-void pchar_func(stack_t **stack, unsigned int line_number);
-
-/* function to print stack as string */
-void pstr_func(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
