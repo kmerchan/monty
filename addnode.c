@@ -21,7 +21,7 @@ stack_t *addnode(char *opcode, stack_t **stack, unsigned int line_number)
 	}
 	for (i = 0; opcode[i + 5] != '\0'; i++)
 	{
-		if (_isdigit(opcode[i + 5]) != 0)
+		if (_isdigit(opcode[i + 5]) || (i == 0 && opcode[i + 5] == '-'))
 			contents[i] = opcode[i + 5];
 		else
 		{

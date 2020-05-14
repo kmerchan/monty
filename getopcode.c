@@ -38,7 +38,7 @@ char *getopcode(char **str)
 		opcode[j] = ' ';
 		while ((*str)[i] == ' ')
 			i++;
-		if ((*str)[i] == '\0')
+		if ((*str)[i] == '\0' || (*str)[i] == '\n')
 		{
 			free(*str);
 			opcode[j] = '\0';
