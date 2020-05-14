@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 
 /* STRUCTS AND DEFINITIONS */
 /**
@@ -70,5 +69,8 @@ void free_for_exit_malloc(FILE *fd, char *opcode, stack_t *stack);
 
 /* function to print free everything & exit for general error */
 void free_for_exit_error(FILE *fd, char *opcode, stack_t *stack);
+
+/* function to check if char is digit */
+int _isdigit(int c);
 
 #endif /* MONTY_H */
