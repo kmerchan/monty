@@ -72,7 +72,7 @@ FILE *opening_func(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	status = access(argv[1], R_OK);
-	if (status)
+	if (status == -1)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
