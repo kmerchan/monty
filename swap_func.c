@@ -16,8 +16,7 @@ void swap_func(stack_t **stack, unsigned int line_number)
 			line_number);
 		fclose(global.fd);
 		free(global.opcode);
-		if (*stack)
-			free_stack(*stack);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	holder = (*stack)->n;
