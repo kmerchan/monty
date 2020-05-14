@@ -37,7 +37,23 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* FUNCTION PROTOTYPES */
+/**
+ * struct variable_s - opcode string and file pointer fd
+ * @opcode: the opcode string
+ * @fd: file pointer
+ *
+ * Description: struct to hold opcode and file pointer
+ * as global variable to be able to free all variables
+ */
+typedef struct variable_s
+{
+	char *opcode;
+	FILE *fd;
+} variable_t;
+
+/* FUNCTION PROTOTYPES AND GLOBAL VARIABLE*/
+extern variable_t global;
+
 /* function to check initial conditions and open the file */
 FILE *opening_func(int argc, char *argv[]);
 
@@ -54,6 +70,9 @@ stack_t *findinstruction(char *opcode, stack_t **stack,
 /* function to print all elements of the stack */
 void pall_func(stack_t **stack, unsigned int line_number);
 
+/* function to print integer at top of stack */
+void pint_func(stack_t **stack, unsigned int line_number);
+
 /* function to catch empty lines or newlines from invalid command */
 void newline_func(stack_t **stack, unsigned int line_number);
 
@@ -61,14 +80,13 @@ void newline_func(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
 
 /* function to print error message, free everything, & exit if push arg fails*/
-void free_for_exit_push(unsigned int line_number, FILE *fd,
-			char *opcode, stack_t *stack);
+void free_for_exit_push(unsigned int line_number, stack_t *stack);
 
 /* function to print error message, free everything, & exit if malloc fails */
-void free_for_exit_malloc(FILE *fd, char *opcode, stack_t *stack);
+void free_for_exit_malloc(stack_t *stack);
 
 /* function to print free everything & exit for general error */
-void free_for_exit_error(FILE *fd, char *opcode, stack_t *stack);
+void free_for_exit_error(stack_t *stack);
 
 /* function to check if char is digit */
 int _isdigit(int c);
