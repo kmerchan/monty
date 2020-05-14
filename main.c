@@ -29,6 +29,7 @@ int main(int argc, char *argv[])
 		opcode = getopcode(&str);
 		if (opcode == NULL)
 			free_for_exit_malloc(fd, opcode, stack);
+		/* printf("opcode: |%s|", opcode);*/
 		if (strncmp(opcode, "push ", 5) == 0)
 		{
 			stack = addnode(opcode, &stack, line_number);
