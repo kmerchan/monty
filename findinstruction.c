@@ -19,6 +19,8 @@ stack_t *findinstruction(char *opcode, stack_t **stack,
 		{"div", div_func}, {"mod", mod_func}, {NULL, NULL} };
 
 
+	if (opcode[0] == '#')
+		return (*stack);
 	for (i = 0; instructions[i].opcode != NULL; i++)
 	{
 		if (strcmp(opcode, instructions[i].opcode) == 0)
