@@ -91,4 +91,7 @@ void free_for_exit_error(stack_t *stack);
 /* function to check if char is digit */
 int _isdigit(int c);
 
+/* function to delete top of stack */
+void pop_func(stack_t **stack, unsigned int line_number);
+
 #endif /* MONTY_H */
