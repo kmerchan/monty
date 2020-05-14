@@ -80,7 +80,7 @@ void swap_func(stack_t **stack, unsigned int line_number);
 void add_func(stack_t **stack, unsigned int line_number);
 
 /* function to catch empty lines or newlines from invalid command */
-void newline_func(stack_t **stack, unsigned int line_number);
+void nop_func(stack_t **stack, unsigned int line_number);
 
 /* function to free all elements of stack */
 void free_stack(stack_t *stack);
