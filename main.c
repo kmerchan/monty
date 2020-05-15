@@ -11,20 +11,19 @@ variable_t global;
 
 int main(int argc, char *argv[])
 {
-	char *str, *str_check;
+	char *str = NULL;
+	size_t buffsize;
+	ssize_t check;
 	unsigned int line_number = 1;
 	stack_t *stack = NULL;
 
 	global.fd = opening_func(argc, argv);
 	while (1)
 	{
-		str_check = malloc(sizeof(char) * 1024);
-		if (str_check == NULL)
-			free_for_exit_malloc(stack);
-		str = fgets(str_check, 1024, global.fd);
-		if (str == NULL)
+		check = getline(&str, &buffsize, global.fd);
+		if (check == -1)
 		{
-			free(str_check);
+			free(str);
 			break;
 		}
 		global.opcode = getopcode(&str);
