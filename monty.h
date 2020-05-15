@@ -66,7 +66,7 @@ stack_t *addnode(char *opcode, stack_t **stack, unsigned int line_number);
 
 /* function to match opcode to specific function */
 stack_t *findinstruction(char *opcode, stack_t **stack,
-			  unsigned int line_number);
+			 unsigned int line_number);
 
 /* function to print all elements of the stack */
 void pall_func(stack_t **stack, unsigned int line_number);

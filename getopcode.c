@@ -16,14 +16,14 @@ char *getopcode(char **str)
 	opcode = malloc(sizeof(char) * (strlen(*str) + 1));
 	if (opcode == NULL)
 	{
-		free(*str);
+		free(*str), *str = NULL;
 		return (NULL);
 	}
 	while ((*str)[i] == ' ')
 		i++;
 	if ((*str)[i] == '\0' || (*str)[i] == '\n')
 	{
-		free(*str);
+		free(*str), *str = NULL;
 		opcode[j] = '\n';
 		opcode[j + 1] = '\0';
 		return (opcode);
@@ -40,7 +40,7 @@ char *getopcode(char **str)
 			i++;
 		if ((*str)[i] == '\0' || (*str)[i] == '\n')
 		{
-			free(*str);
+			free(*str), *str = NULL;
 			opcode[j] = '\0';
 			return (opcode);
 		}
@@ -48,6 +48,6 @@ char *getopcode(char **str)
 			opcode[j] = (*str)[i];
 		opcode[j] = '\0';
 	}
-	free(*str);
+	free(*str), *str = NULL;
 	return (opcode);
 }
