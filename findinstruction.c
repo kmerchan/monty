@@ -29,7 +29,7 @@ stack_t *findinstruction(char *opcode, stack_t **stack,
 	}
 	if (instructions[i].opcode == NULL)
 	{
-		fprintf("L%d: unknown instruction %s\n", line_number, opcode);
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
 		free_for_exit_error(*stack);
 	}
 	instructions[i].f(stack, line_number);
