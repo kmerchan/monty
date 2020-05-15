@@ -20,8 +20,6 @@ int main(int argc, char *argv[])
 	global.fd = opening_func(argc, argv);
 	while (1)
 	{
-		if (str == NULL)
-			free_for_exit_malloc(stack);
 		check = getline(&str, &buffsize, global.fd);
 		if (check == -1)
 		{
