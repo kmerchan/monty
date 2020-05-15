@@ -8,11 +8,11 @@ void pchar_func(stack_t **stack, unsigned int line_number)
 {
 	if (*stack)
 	{
-		if ((*stack)->n > 0 && (*stack)->n <= 127)
+		if ((*stack)->n >= 0 && (*stack)->n <= 127)
 			printf("%c\n", (*stack)->n);
 		else
 		{
-			fprintf(stderr, "L%u: can't pchar, value out of range", line_number);
+			fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
 			fclose(global.fd);
 			free(global.opcode);
 			free_stack(*stack);
