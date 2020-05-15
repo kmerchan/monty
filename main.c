@@ -68,13 +68,13 @@ FILE *opening_func(int argc, char *argv[])
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	status = access(argv[1], R_OK);
+	status = open(argv[1], O_RDONLY);
 	if (status == -1)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	global.fd = fopen(argv[1], "r");
+	global.fd = fdopen(status, "r");
 	if (global.fd == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
