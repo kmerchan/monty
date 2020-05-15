@@ -6,15 +6,14 @@
   */
 void pop_func(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp;
+	stack_t *tmp = (*stack);
 
 	if (*stack)
 	{
-		tmp = (*stack)->next;
-		free(*stack);
-		if (tmp)
-			tmp->prev = NULL;
-		(*stack) = tmp;
+		(*stack) = (*stack)->next;
+		free(tmp);
+		if (*stack)
+			(*stack)->prev = NULL;
 	}
 	else
 	{
