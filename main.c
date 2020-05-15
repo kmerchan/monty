@@ -12,7 +12,7 @@ variable_t global;
 int main(int argc, char *argv[])
 {
 	char *str = NULL;
-	size_t buffsize;
+	size_t buffsize = 100;
 	ssize_t check;
 	unsigned int line_number = 1;
 	stack_t *stack = NULL;
@@ -20,6 +20,9 @@ int main(int argc, char *argv[])
 	global.fd = opening_func(argc, argv);
 	while (1)
 	{
+		str = malloc(sizeof(char) * 100);
+		if (str == NULL)
+			free_for_exit_malloc(stack);
 		check = getline(&str, &buffsize, global.fd);
 		if (check == -1)
 		{
